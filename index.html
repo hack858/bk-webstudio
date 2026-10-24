@@ -1,0 +1,3073 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>BK WebStudio — Professional Website & WebApp Design That Builds Brands</title>
+  <meta name="description"
+    content="BK WebStudio menyediakan jasa pembuatan website profil bisnis, toko online, dashboard admin, dan WebApp modern, futuristik, dan terjangkau untuk UMKM.">
+  <meta name="theme-color" content="#080718">
+
+  <!-- Favicon Official BK WebStudio Monogram -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23ffffff'/%3E%3Cpath d='M66 14H14V86H66V72H28V28H66V14Z' fill='%2318191c'/%3E%3Cpath d='M66 14C78 14 88 22 88 34C88 43 82 48 75 50C82 52 88 57 88 66C88 78 78 86 66 86V72H66V57H48V65H38V35H48V43H66V28H66V14Z' fill='%2300a2e8'/%3E%3C/svg%3E">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      /* Palette Warna Desain Weblancer Hybrid (Dark Hero + Clean Bento Body) */
+      --hero-bg: #09071c;
+      --hero-surface: #120d33;
+      --hero-card: rgba(26, 20, 64, 0.65);
+      --hero-border: rgba(139, 92, 246, 0.2);
+
+      --body-bg: #f8fafc;
+      --body-card: #ffffff;
+      --body-border: #e2e8f0;
+      --body-card-hover: #ffffff;
+
+      --primary-purple: #7c3aed;
+      --primary-indigo: #6366f1;
+      --primary-violet: #8b5cf6;
+      --primary-fuchsia: #d946ef;
+      --accent-cyan: #06b6d4;
+      --accent-blue: #38bdf8;
+      --accent-emerald: #10b981;
+
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-white: #ffffff;
+      --text-white-dim: #94a3b8;
+
+      --gradient-brand: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+      --gradient-cyan: linear-gradient(135deg, #06b6d4 0%, #38bdf8 100%);
+      --gradient-text: linear-gradient(135deg, #a78bfa 0%, #c084fc 40%, #38bdf8 100%);
+      --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 20px 35px -10px rgba(99, 102, 241, 0.15);
+      --shadow-glow: 0 0 40px rgba(124, 58, 237, 0.35);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-pill: 9999px;
+
+      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--body-bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Container Utility */
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* 1. FLOATING NAVBAR */
+    .navbar-wrapper {
+      position: fixed;
+      top: 1.25rem;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0 1.25rem;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(9, 7, 28, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-pill);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition-normal);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .brand-logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+      flex-shrink: 0;
+      padding: 4px;
+    }
+
+    .brand-logo-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-white);
+    }
+
+    .brand-title span {
+      background: var(--gradient-cyan);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: var(--text-white-dim);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition-fast);
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--text-white);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition-normal);
+      border: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--gradient-brand);
+      color: #ffffff;
+      box-shadow: 0 4px 18px rgba(124, 58, 237, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(124, 58, 237, 0.6);
+      color: #ffffff;
+    }
+
+    .btn-outline-dark {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-white);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-outline-dark:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-whatsapp:hover {
+      background: #20ba59;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+      color: #ffffff;
+    }
+
+    .hamburger-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-white);
+      cursor: pointer;
+      padding: 0.4rem;
+    }
+
+    .hamburger-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* 2. HERO SECTION (DARK ELEGANT BANNER) */
+    .hero-section {
+      background: radial-gradient(circle at 75% 20%, rgba(124, 58, 237, 0.35) 0%, rgba(99, 102, 241, 0.15) 35%, transparent 70%),
+        radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.2) 0%, transparent 60%),
+        var(--hero-bg);
+      color: var(--text-white);
+      padding: 8.5rem 0 5rem 0;
+      position: relative;
+      overflow: hidden;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #c4b5fd;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge-pill span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+      }
+    }
+
+    .hero-headline {
+      font-size: 3.25rem;
+      line-height: 1.1;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+    }
+
+    .gradient-headline {
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--text-white-dim);
+      margin-bottom: 2rem;
+      max-width: 520px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.75rem;
+    }
+
+    /* 4 Feature Pills Row */
+    .hero-features-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-feat-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+
+    .feat-icon-box {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a78bfa;
+      flex-shrink: 0;
+    }
+
+    .feat-icon-box svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .feat-text-box h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.15rem;
+    }
+
+    .feat-text-box p {
+      font-size: 0.7rem;
+      color: var(--text-white-dim);
+      line-height: 1.3;
+    }
+
+    /* HERO RIGHT: 3D LAPTOP MOCKUP & FLOATING METRIC CARDS */
+    .hero-mockup-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 3D Laptop Container */
+    .laptop-chassis {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      perspective: 1000px;
+      filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.6));
+    }
+
+    .laptop-screen {
+      background: #000000;
+      border-radius: 16px 16px 0 0;
+      padding: 12px 12px 0 12px;
+      border: 2px solid #2d2a45;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .laptop-camera {
+      width: 6px;
+      height: 6px;
+      background: #1e1b30;
+      border-radius: 50%;
+      margin: 0 auto 8px auto;
+      box-shadow: inset 0 0 2px #000;
+    }
+
+    .laptop-display {
+      background: #0d0a21;
+      border-radius: 8px 8px 0 0;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      position: relative;
+      background-image: radial-gradient(circle at 80% 30%, rgba(124, 58, 237, 0.4) 0%, transparent 60%),
+        radial-gradient(circle at 20% 70%, rgba(6, 182, 212, 0.3) 0%, transparent 60%);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .screen-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .screen-dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .screen-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .screen-dot.r {
+      background: #ef4444;
+    }
+
+    .screen-dot.y {
+      background: #f59e0b;
+    }
+
+    .screen-dot.g {
+      background: #10b981;
+    }
+
+    .screen-badge-mock {
+      font-size: 0.65rem;
+      color: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 10px;
+      border-radius: 12px;
+    }
+
+    .screen-body-hero {
+      text-align: left;
+      margin-top: 0.5rem;
+    }
+
+    .screen-body-hero h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #ffffff;
+      margin-bottom: 0.4rem;
+    }
+
+    .screen-body-hero p {
+      font-size: 0.65rem;
+      color: #94a3b8;
+      max-width: 220px;
+      margin-bottom: 0.75rem;
+    }
+
+    .screen-btn {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--gradient-brand);
+      color: #ffffff;
+      font-size: 0.65rem;
+      font-weight: 600;
+      border-radius: 20px;
+    }
+
+    .screen-preview-card {
+      position: absolute;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      width: 140px;
+      height: 90px;
+      background: rgba(30, 24, 68, 0.85);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      border-radius: 8px;
+      padding: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .preview-chart-bar {
+      height: 4px;
+      background: #6366f1;
+      border-radius: 2px;
+      margin-bottom: 6px;
+    }
+
+    .laptop-base {
+      background: linear-gradient(to bottom, #d1d5db 0%, #9ca3af 100%);
+      height: 12px;
+      border-radius: 0 0 16px 16px;
+      position: relative;
+    }
+
+    .laptop-base::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 4px;
+      background: #4b5563;
+      border-radius: 0 0 4px 4px;
+    }
+
+    /* Floating Metric Widgets */
+    .floating-widget {
+      position: absolute;
+      background: rgba(18, 14, 45, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-lg);
+      padding: 0.85rem 1.15rem;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      color: #ffffff;
+      z-index: 10;
+      animation: floatSlow 4s ease-in-out infinite;
+    }
+
+    @keyframes floatSlow {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .widget-clients {
+      top: -1.5rem;
+      right: -1rem;
+      animation-delay: 0s;
+    }
+
+    .widget-projects {
+      bottom: 2rem;
+      right: -2rem;
+      animation-delay: 1.5s;
+    }
+
+    .widget-satisfaction {
+      bottom: -1.75rem;
+      left: 2rem;
+      animation-delay: 2.5s;
+      border-radius: var(--radius-pill);
+      padding: 0.6rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .widget-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .widget-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: rgba(99, 102, 241, 0.25);
+      color: #818cf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .widget-icon svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .widget-num {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .widget-label {
+      font-size: 0.7rem;
+      color: #94a3b8;
+    }
+
+    .widget-sparkline {
+      width: 100%;
+      height: 22px;
+      margin-top: 0.4rem;
+    }
+
+    .satisfaction-ring {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    /* 3. STATS STRIP BANNER */
+    .stats-strip-section {
+      background: #ffffff;
+      border-bottom: 1px solid var(--body-border);
+      padding: 2.25rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    .stats-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .strip-stat-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .strip-stat-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-indigo);
+      flex-shrink: 0;
+    }
+
+    .strip-stat-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .strip-stat-val {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.1;
+    }
+
+    .strip-stat-lbl {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* 4. SERVICES SECTION (WHAT WE DO - BENTO GRID) */
+    .section-bento {
+      padding: 6rem 0;
+    }
+
+    .bento-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .bento-header-col {
+      position: sticky;
+      top: 6rem;
+    }
+
+    .sub-badge {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary-indigo);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-headline {
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-paragraph {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+
+    .bento-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .bento-card {
+      background: var(--body-card);
+      border: 1px solid var(--body-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .bento-icon-wrapper {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: #eff6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-indigo);
+      margin-bottom: 1.25rem;
+    }
+
+    .bento-icon-wrapper.purple {
+      background: #f5f3ff;
+      color: var(--primary-purple);
+    }
+
+    .bento-icon-wrapper.cyan {
+      background: #ecfeff;
+      color: var(--accent-cyan);
+    }
+
+    .bento-icon-wrapper.blue {
+      background: #eff6ff;
+      color: #2563eb;
+    }
+
+    .bento-icon-wrapper svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .bento-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .bento-card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* 5. 4-SMARTPHONE SHOWCASE SECTION (THE HEROIC MOCKUP SECTION FROM SCREENSHOT) */
+    .showcase-section {
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
+      padding: 6.5rem 0;
+      overflow: hidden;
+      border-top: 1px solid var(--body-border);
+      border-bottom: 1px solid var(--body-border);
+    }
+
+    .center-heading-box {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 4rem auto;
+    }
+
+    /* 5. PORTFOLIO SHOWCASE SECTION (#portofolio) */
+    .portfolio-section {
+      padding: 6.5rem 0;
+      background: #f8fafc;
+      border-top: 1px solid var(--body-border);
+      border-bottom: 1px solid var(--body-border);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .portfolio-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(99, 102, 241, 0.18);
+      border-color: #cbd5e1;
+    }
+
+    .portfolio-preview-banner {
+      height: 155px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      color: #ffffff;
+    }
+
+    .portfolio-preview-banner.lege {
+      background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
+    }
+
+    .portfolio-preview-banner.bss {
+      background: linear-gradient(135deg, #7c2d12 0%, #ea580c 100%);
+    }
+
+    .portfolio-preview-banner.pos {
+      background: linear-gradient(135deg, #075985 0%, #0284c7 100%);
+    }
+
+    .portfolio-badge-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .portfolio-live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .live-dot-pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+      display: inline-block;
+      animation: pulseGreen 2s infinite;
+    }
+
+    @keyframes pulseGreen {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+    }
+
+    .portfolio-platform-tag {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.68rem;
+      font-weight: 600;
+    }
+
+    .portfolio-banner-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .portfolio-banner-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .portfolio-banner-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    .portfolio-body {
+      padding: 1.75rem 1.5rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .portfolio-cat-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--primary-indigo);
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-heading {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+
+    .portfolio-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .portfolio-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .portfolio-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: #475569;
+    }
+
+    .portfolio-feature-item svg {
+      width: 16px;
+      height: 16px;
+      color: #10b981;
+      flex-shrink: 0;
+    }
+
+    .btn-portfolio-demo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      background: #0f172a;
+      color: #ffffff;
+    }
+
+    .btn-portfolio-demo:hover {
+      background: var(--primary-indigo);
+      color: #ffffff;
+      box-shadow: 0 6px 15px rgba(99, 102, 241, 0.35);
+      transform: translateY(-2px);
+    }
+
+    /* 6. PRICING SECTION (#harga) */
+    .section-pricing {
+      padding: 6rem 0;
+      background: #ffffff;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .pricing-card {
+      background: #ffffff;
+      border: 1px solid var(--body-border);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: var(--transition-normal);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .pricing-card.featured {
+      background: linear-gradient(180deg, #ffffff 0%, #faf5ff 100%);
+      border: 2px solid var(--primary-purple);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gradient-brand);
+      color: #ffffff;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+    }
+
+    .pkg-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .pkg-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      min-height: 44px;
+    }
+
+    .pkg-price {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.75rem;
+    }
+
+    .pkg-features-list {
+      list-style: none;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .pkg-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.9rem;
+      color: #334155;
+    }
+
+    .pkg-feature-item svg {
+      width: 18px;
+      height: 18px;
+      color: var(--accent-emerald);
+      flex-shrink: 0;
+    }
+
+    /* 7. FAQ ACCORDION (#faq) */
+    .section-faq {
+      padding: 6rem 0;
+      background: #f8fafc;
+      border-top: 1px solid var(--body-border);
+    }
+
+    .faq-wrapper {
+      max-width: 820px;
+      margin: 3rem auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-card {
+      background: #ffffff;
+      border: 1px solid var(--body-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition-fast);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      padding: 1.25rem 1.5rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .faq-toggle-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--primary-indigo);
+      transition: var(--transition-fast);
+    }
+
+    .faq-card.active .faq-toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      padding: 0 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .faq-card.active .faq-answer {
+      padding-bottom: 1.25rem;
+    }
+
+    /* 8. CONSULTATION FORM & CONTACT (#pesan) */
+    .section-contact {
+      padding: 6rem 0;
+      background: #ffffff;
+      border-top: 1px solid var(--body-border);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 3.5rem;
+      align-items: start;
+      margin-top: 3.5rem;
+    }
+
+    .contact-info-card {
+      background: #f8fafc;
+      border: 1px solid var(--body-border);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+    }
+
+    .info-list-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .info-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #eff6ff;
+      color: var(--primary-indigo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-icon-box svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .info-text-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .info-text-val {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      text-decoration: none;
+      display: inline-block;
+      transition: color 0.2s ease;
+    }
+
+    a.info-text-val:hover {
+      color: var(--primary-purple);
+      text-decoration: underline;
+    }
+
+    /* Contact Form Card */
+    .form-card {
+      background: #ffffff;
+      border: 1px solid var(--body-border);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      font-family: inherit;
+      transition: var(--transition-fast);
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--primary-indigo);
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+    }
+
+    .form-error {
+      color: #ef4444;
+      font-size: 0.78rem;
+      margin-top: 0.35rem;
+      display: none;
+    }
+
+    /* 9. FOOTER (DARK OBSIDIAN LUXURY) */
+    .footer {
+      background: #080718;
+      color: #ffffff;
+      padding: 5rem 0 2.5rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-top: 1rem;
+      max-width: 320px;
+    }
+
+    .footer-heading {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-link-item {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: var(--transition-fast);
+    }
+
+    .footer-link-item:hover {
+      color: #ffffff;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-wa-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 999;
+      background: #25d366;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.85rem 1.35rem;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
+      transition: var(--transition-normal);
+    }
+
+    .floating-wa-btn:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+      color: #ffffff;
+    }
+
+    .floating-wa-btn svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* Modal Dialog Pop-up Sukses */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #ffffff;
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+      animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .modal-icon-ring {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #ecfdf5;
+      color: #10b981;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem auto;
+    }
+
+    .modal-icon-ring svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 5.5rem;
+      left: 1.25rem;
+      right: 1.25rem;
+      background: rgba(9, 7, 28, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 1.5rem;
+      z-index: 999;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .mobile-drawer.open {
+      display: flex;
+    }
+
+    .mobile-nav-link {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+      }
+
+      .hero-desc {
+        margin: 0 auto 2rem auto;
+      }
+
+      .hero-cta-group {
+        justify-content: center;
+      }
+
+      .hero-features-row {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+      }
+
+      .hero-mockup-wrapper {
+        margin-top: 1rem;
+      }
+
+      .bento-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .bento-header-col {
+        position: static;
+        text-align: center;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stats-strip-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .hamburger-btn {
+        display: block;
+      }
+
+      .hero-section {
+        padding: 7rem 0 3.5rem 0;
+      }
+
+      .hero-headline {
+        font-size: clamp(1.85rem, 6.5vw, 2.3rem);
+        line-height: 1.25;
+      }
+
+      .hero-desc {
+        font-size: 0.98rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-features-row {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+      }
+
+      .hero-mockup-wrapper {
+        overflow: hidden;
+        padding-top: 1rem;
+      }
+
+      .widget-clients {
+        right: 0;
+        top: -0.75rem;
+      }
+
+      .widget-projects {
+        display: none;
+      }
+
+      .widget-satisfaction {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -1rem;
+        white-space: nowrap;
+      }
+
+      .section-headline {
+        font-size: 1.85rem;
+      }
+
+      .section-paragraph {
+        font-size: 0.95rem;
+      }
+
+      .portfolio-section {
+        padding: 4.5rem 0;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .bento-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .section-bento {
+        padding: 4.5rem 0;
+      }
+
+      .section-pricing {
+        padding: 4.5rem 0;
+      }
+
+      .section-faq {
+        padding: 4.5rem 0;
+      }
+
+      .section-contact {
+        padding: 4.5rem 0;
+      }
+
+      .stats-strip-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-bottom-bar {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .floating-wa-btn span {
+        display: none;
+      }
+
+      .floating-wa-btn {
+        padding: 0.85rem;
+        border-radius: 50%;
+        bottom: 1.25rem;
+        right: 1.25rem;
+      }
+    }
+
+    /* Optimasi Khusus Layar Smartphone (Mobile-First < 480px) */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .navbar-wrapper {
+        padding: 0 0.75rem;
+        top: 0.75rem;
+      }
+
+      .navbar {
+        padding: 0.6rem 1rem;
+      }
+
+      .brand-title {
+        font-size: 1.1rem;
+      }
+
+      .hero-section {
+        padding: 6.25rem 0 3rem 0;
+      }
+
+      .hero-headline {
+        font-size: 1.75rem;
+      }
+
+      .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+      }
+
+      .hero-cta-group .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .btn,
+      .btn-portfolio-demo,
+      .btn-order-pkg {
+        min-height: 48px;
+      }
+
+      .portfolio-preview-banner {
+        height: 140px;
+        padding: 1.25rem 1rem;
+      }
+
+      .portfolio-body {
+        padding: 1.25rem 1rem;
+      }
+
+      .portfolio-heading {
+        font-size: 1.1rem;
+      }
+
+      .pricing-card {
+        padding: 1.75rem 1.25rem;
+      }
+
+      .form-card {
+        padding: 1.5rem 1rem;
+      }
+
+      .contact-info-card {
+        padding: 1.5rem 1rem;
+      }
+
+      .form-input,
+      .form-select,
+      .form-textarea {
+        font-size: 16px;
+        /* Mencegah auto-zoom paksa di browser iOS Safari & Android */
+        padding: 0.75rem 0.85rem;
+        min-height: 48px;
+      }
+
+      .form-textarea {
+        min-height: 110px;
+      }
+
+      .modal-dialog {
+        padding: 1.75rem 1.25rem;
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 1. FLOATING NAVBAR -->
+  <div class="navbar-wrapper">
+    <nav class="navbar" id="navbar">
+      <a href="#beranda" class="nav-brand">
+        <div class="brand-logo-icon">
+          <svg viewBox="0 0 100 100" fill="none">
+            <path d="M66 14H14V86H66V72H28V28H66V14Z" fill="#18191c" />
+            <path
+              d="M66 14C78 14 88 22 88 34C88 43 82 48 75 50C82 52 88 57 88 66C88 78 78 86 66 86V72H66V57H48V65H38V35H48V43H66V28H66V14Z"
+              fill="#00a2e8" />
+          </svg>
+        </div>
+        <span class="brand-title">BK Web<span>Studio</span></span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#beranda" class="nav-link">Beranda</a></li>
+        <li><a href="#layanan" class="nav-link">Layanan</a></li>
+        <li><a href="#portofolio" class="nav-link">Portofolio</a></li>
+        <li><a href="#harga" class="nav-link">Paket Harga</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a href="#pesan" class="nav-link">Kontak</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#pesan" class="btn btn-primary">
+          <span>Konsultasi Gratis</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu Navigasi">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="#beranda" class="mobile-nav-link">Beranda</a>
+    <a href="#layanan" class="mobile-nav-link">Layanan</a>
+    <a href="#portofolio" class="mobile-nav-link">Portofolio</a>
+    <a href="#harga" class="mobile-nav-link">Paket Harga</a>
+    <a href="#faq" class="mobile-nav-link">FAQ</a>
+    <a href="#pesan" class="mobile-nav-link">Hubungi Kami</a>
+  </div>
+
+  <!-- 2. HERO SECTION (DARK ELEGANT AGENCY HEADER) -->
+  <header class="hero-section" id="beranda">
+    <div class="container hero-grid">
+      <!-- Left Content -->
+      <div class="hero-left-content">
+        <div class="hero-badge-pill">
+          <span class="dot"></span>
+          <span>Modern. Cepat. Bergaransi ➔</span>
+        </div>
+
+        <h1 class="hero-headline">
+          WORDPRESS & WEBAPP<br>
+          <span class="gradient-headline">WEBSITE DESIGN</span><br>
+          THAT BUILDS BRANDS
+        </h1>
+
+        <p class="hero-desc">
+          Kami membangun website profil, katalog toko online, dan WebApp modern yang cepat, memikat, dan terbukti
+          melejitkan omzet bisnis Anda di era digital.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#portofolio" class="btn btn-primary">
+            <span>Explore Our Work</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="#portofolio" class="btn btn-outline-dark">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <span>View Demo</span>
+          </a>
+        </div>
+
+        <!-- 4 Feature Pills Row -->
+        <div class="hero-features-row">
+          <div class="hero-feat-item">
+            <div class="feat-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
+            </div>
+            <div class="feat-text-box">
+              <h4>Lightning Fast</h4>
+              <p>Loading instan & performa tinggi</p>
+            </div>
+          </div>
+
+          <div class="hero-feat-item">
+            <div class="feat-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <div class="feat-text-box">
+              <h4>SEO Ready</h4>
+              <p>Struktur ramah Google</p>
+            </div>
+          </div>
+
+          <div class="hero-feat-item">
+            <div class="feat-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <div class="feat-text-box">
+              <h4>Fully Responsive</h4>
+              <p>Sempurna di layar HP & PC</p>
+            </div>
+          </div>
+
+          <div class="hero-feat-item">
+            <div class="feat-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg>
+            </div>
+            <div class="feat-text-box">
+              <h4>Google Sheets</h4>
+              <p>Database gratis & aman</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right 3D Laptop Mockup -->
+      <div class="hero-mockup-wrapper">
+        <!-- Floating Card 1: Live Demo Aktif -->
+        <div class="floating-widget widget-clients">
+          <div class="widget-header">
+            <div class="widget-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            </div>
+            <div class="widget-num">3+</div>
+          </div>
+          <div class="widget-label">Live Demo Aktif</div>
+          <svg class="widget-sparkline" viewBox="0 0 80 20" fill="none">
+            <path d="M2 18L20 12L35 15L55 5L78 8" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+        </div>
+
+        <!-- Floating Card 2: Bebas Sewa Server -->
+        <div class="floating-widget widget-projects">
+          <div class="widget-header">
+            <div class="widget-icon" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg>
+            </div>
+            <div class="widget-num">Rp 0</div>
+          </div>
+          <div class="widget-label">Bebas Sewa Server</div>
+        </div>
+
+        <!-- Floating Card 3: Garansi Revisi Pill -->
+        <div class="floating-widget widget-satisfaction">
+          <svg class="satisfaction-ring" viewBox="0 0 36 36">
+            <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none"
+              stroke="rgba(255,255,255,0.15)" stroke-width="3.5" />
+            <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke="#06b6d4" stroke-width="3.5"
+              stroke-dasharray="100, 100" stroke-linecap="round" />
+          </svg>
+          <div>
+            <div style="font-weight: 800; font-size: 0.95rem; color: #ffffff;">100%</div>
+            <div style="font-size: 0.68rem; color: #94a3b8;">Garansi Revisi</div>
+          </div>
+        </div>
+
+        <!-- 3D Laptop Body -->
+        <div class="laptop-chassis">
+          <div class="laptop-screen">
+            <div class="laptop-camera"></div>
+            <div class="laptop-display">
+              <div class="screen-header">
+                <div class="screen-dots">
+                  <div class="screen-dot r"></div>
+                  <div class="screen-dot y"></div>
+                  <div class="screen-dot g"></div>
+                </div>
+                <div class="screen-badge-mock">bk-webstudio.digital</div>
+              </div>
+
+              <div class="screen-body-hero">
+                <h3>Creative Solutions<br>For Smart Businesses</h3>
+                <p>We craft beautiful digital experiences that drive growth.</p>
+                <span class="screen-btn">Explore Work ➔</span>
+              </div>
+
+              <div class="screen-preview-card">
+                <div class="preview-chart-bar" style="width: 80%;"></div>
+                <div class="preview-chart-bar" style="width: 50%; background: #06b6d4;"></div>
+                <div style="font-size: 0.55rem; color: #a5b4fc; margin-top: 10px;">Cloud Leads Sync</div>
+              </div>
+            </div>
+          </div>
+          <div class="laptop-base"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. STATS STRIP BANNER -->
+  <section class="stats-strip-section">
+    <div class="container">
+      <div class="stats-strip-grid">
+        <div class="strip-stat-item">
+          <div class="strip-stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+          </div>
+          <div>
+            <div class="strip-stat-val">3 Proyek</div>
+            <div class="strip-stat-lbl">Demo Live Siap Coba</div>
+          </div>
+        </div>
+
+        <div class="strip-stat-item">
+          <div class="strip-stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
+          </div>
+          <div>
+            <div class="strip-stat-val">2–3 Hari</div>
+            <div class="strip-stat-lbl">Estimasi Cepat Selesai</div>
+          </div>
+        </div>
+
+        <div class="strip-stat-item">
+          <div class="strip-stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+              <line x1="12" y1="18" x2="12.01" y2="18" />
+            </svg>
+          </div>
+          <div>
+            <div class="strip-stat-val">100%</div>
+            <div class="strip-stat-lbl">Desain Mobile-First</div>
+          </div>
+        </div>
+
+        <div class="strip-stat-item">
+          <div class="strip-stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+          </div>
+          <div>
+            <div class="strip-stat-val">Rp 0 / bln</div>
+            <div class="strip-stat-lbl">Bebas Biaya Server Cloud</div>
+          </div>
+        </div>
+
+        <div class="strip-stat-item">
+          <div class="strip-stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </div>
+          <div>
+            <div class="strip-stat-val">Fast Response</div>
+            <div class="strip-stat-lbl">Konsultasi Ramah via WA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SERVICES SECTION (WHAT WE DO / BENTO GRID) -->
+  <section class="section-bento" id="layanan">
+    <div class="container">
+      <div class="bento-layout">
+        <!-- Left Header -->
+        <div class="bento-header-col">
+          <div class="sub-badge">WHAT WE DO</div>
+          <h2 class="section-headline">
+            Smart Solutions For <span style="color: var(--primary-purple);">Modern Businesses</span>
+          </h2>
+          <p class="section-paragraph">
+            Kami membantu Anda membangun website dan WebApp yang modern, fungsional, dan sesuai kebutuhan bisnis. Dengan
+            memanfaatkan teknologi AI dan keterampilan pengembangan web, kami mengubah ide menjadi solusi digital yang
+            praktis dan mudah digunakan.
+          </p>
+          <a href="#harga" class="btn btn-outline-dark" style="color: var(--text-main); border-color: #cbd5e1;">
+            <span>Lihat Semua Paket ➔</span>
+          </a>
+        </div>
+
+        <!-- Right 6 Bento Cards -->
+        <div class="bento-cards-grid">
+          <div class="bento-card">
+            <div class="bento-icon-wrapper purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <h3 class="bento-card-title">Website Profil Perusahaan</h3>
+            <p class="bento-card-desc">Tampilkan bisnis Anda secara profesional melalui website responsif yang
+              memperkenalkan layanan, informasi, dan keunggulan usaha kepada calon pelanggan.</p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon-wrapper blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            </div>
+            <h3 class="bento-card-title">Theme & WebApp Kustom</h3>
+            <p class="bento-card-desc">Bangun aplikasi berbasis web untuk membantu pencatatan data, administrasi,
+              inventaris, dan kebutuhan operasional bisnis sesuai spesifikasi proyek.</p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon-wrapper purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 0 1-8 0" />
+              </svg>
+            </div>
+            <h3 class="bento-card-title">E-Commerce & Katalog Produk</h3>
+            <p class="bento-card-desc">Tampilkan produk secara menarik, lengkapi dengan informasi harga, dan permudah
+              pelanggan melakukan pemesanan sesuai fitur yang disepakati.</p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon-wrapper cyan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
+              </svg>
+            </div>
+            <h3 class="bento-card-title">SEO Dasar</h3>
+            <p class="bento-card-desc">Optimalkan struktur halaman, judul, dan informasi website untuk membantu mesin
+              pencari memahami konten situs Anda.</p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon-wrapper purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+            </div>
+            <h3 class="bento-card-title">Speed & Performance</h3>
+            <p class="bento-card-desc">Tingkatkan kenyamanan pengguna melalui perbaikan struktur halaman, aset, dan kode
+              sesuai kemampuan platform yang digunakan.</p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon-wrapper blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <polyline points="9 12 11 14 15 10" />
+              </svg>
+            </div>
+            <h3 class="bento-card-title">Garansi & Maintenance</h3>
+            <p class="bento-card-desc">Dapatkan bantuan perbaikan, panduan penggunaan, dan pemeliharaan sesuai paket
+              serta ketentuan layanan yang disepakati.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. KARYA & PORTOFOLIO PROYEK TERPILIH (#portofolio / #showcase) -->
+  <section class="portfolio-section" id="portofolio">
+    <div id="showcase" style="position: absolute; margin-top: -90px;"></div>
+    <div class="container">
+      <div class="center-heading-box">
+        <div class="sub-badge">KARYA & BUKTI NYATA</div>
+        <h2 class="section-headline">Portofolio Proyek Terpilih</h2>
+        <p class="section-paragraph">
+          Bukan sekadar konsep visual. Coba dan jelajahi langsung website serta WebApp aktif buatan BK WebStudio yang
+          terhubung ke database cloud Google Sheets.
+        </p>
+      </div>
+
+      <div class="portfolio-grid">
+        <!-- Proyek 1: Angkringan Lege -->
+        <div class="portfolio-card">
+          <div class="portfolio-preview-banner lege">
+            <div class="portfolio-badge-top">
+              <span class="portfolio-live-pill">
+                <span class="live-dot-pulse"></span>
+                <span>Live Demo</span>
+              </span>
+              <span class="portfolio-platform-tag">Website Kuliner</span>
+            </div>
+            <div class="portfolio-banner-content">
+              <div class="portfolio-banner-icon">🍗</div>
+              <div class="portfolio-banner-title">Angkringan Lege</div>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div>
+              <span class="portfolio-cat-badge">Website Kuliner & Reservasi</span>
+              <h3 class="portfolio-heading">Angkringan Lege Digital</h3>
+              <p class="portfolio-desc">
+                Website interaktif untuk usaha kuliner tradisional dengan katalog menu sate, informasi lokasi, dan
+                pemesanan meja langsung via WhatsApp.
+              </p>
+              <ul class="portfolio-features-list">
+                <li class="portfolio-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>Katalog menu lengkap & harga transparan</span>
+                </li>
+                <li class="portfolio-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>Integrasi reservasi instan ke WhatsApp admin</span>
+                </li>
+                <li class="portfolio-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>100% responsif & cepat di smartphone</span>
+                </li>
+              </ul>
+            </div>
+            <a href="https://script.google.com/macros/s/AKfycbzRAP0J5tOWvcMUd5gRPYiBRy18KN1OID5SH3sULMsvFO93UhING0vP1szKZIZDzI_DKw/exec"
+              target="_blank" rel="noopener noreferrer" class="btn-portfolio-demo">
+              <span>Buka Demo Langsung</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Proyek 2: Angkringan Bss Spesial -->
+        <div class="portfolio-card">
+          <div class="portfolio-preview-banner bss">
+            <div class="portfolio-badge-top">
+              <span class="portfolio-live-pill">
+                <span class="live-dot-pulse"></span>
+                <span>Live Demo</span>
+              </span>
+              <span class="portfolio-platform-tag">Food & WebApp</span>
+            </div>
+            <div class="portfolio-banner-content">
+              <div class="portfolio-banner-icon">☕</div>
+              <div class="portfolio-banner-title">Angkringan Bss Spesial</div>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div>
+              <span class="portfolio-cat-badge">Multi-Session Order & Sheets</span>
+              <h3 class="portfolio-heading">Bss Spesial Order System</h3>
+              <p class="portfolio-desc">
+                WebApp pemesanan makanan & minuman dengan keranjang belanja multi-sesi meja, hitung otomatis, dan
+                sinkronisasi pesanan ke Google Sheets.
+              </p>
+              <ul class="portfolio-features-list">
+                <li class="portfolio-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>Pemesanan per sesi meja secara real-time</span>
+                </li>
+                <li class="portfolio-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>Keranjang belanja & rincian total belanja</span>
+                </li>
+                <li class="portfolio-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>Otomasi database cloud Google Sheets</span>
+                </li>
+              </ul>
+            </div>
+            <a href="https://script.google.com/macros/s/AKfycbxRk3NY8-G0HBaaB05YYa9c19ECLHaPE03mJuq0UthDFjLZL2RjGEg1fh5C0Hw1Jjw3/exec"
+              target="_blank" rel="noopener noreferrer" class="btn-portfolio-demo">
+              <span>Buka Demo Langsung</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Proyek 3: WebApp Kasir & Inventory -->
+        <div class="portfolio-card">
+          <div class="portfolio-preview-banner pos">
+            <div class="portfolio-badge-top">
+              <span class="portfolio-live-pill">
+                <span class="live-dot-pulse"></span>
+                <span>Live Demo</span>
+              </span>
+              <span class="portfolio-platform-tag">Point of Sale</span>
+            </div>
+            <div class="portfolio-banner-content">
+              <div class="portfolio-banner-icon">🛒</div>
+              <div class="portfolio-banner-title">WebApp Kasir & Inventory</div>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div>
+              <span class="portfolio-cat-badge">POS Kasir & Manajemen Stok</span>
+              <h3 class="portfolio-heading">Sistem Kasir & Inventori UMKM</h3>
+              <p class="portfolio-desc">
+                Aplikasi Point of Sale lengkap untuk transaksi kasir kas/non-tunai, pemotongan stok otomatis, cetak
+                struk, dan laporan penjualan harian.
+              </p>
+              <ul class="portfolio-features-list">
+                <li class="portfolio-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>Transaksi cepat kasir & cetak struk belanja</span>
+                </li>
+                <li class="portfolio-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>Pencatatan & pemotongan stok real-time</span>
+                </li>
+                <li class="portfolio-feature-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>Database Google Sheets tanpa biaya server</span>
+                </li>
+              </ul>
+            </div>
+            <a href="https://script.google.com/macros/s/AKfycbxDS0tVqp5QRzMKrcSfl4bn5YiuNYuBMi2GNwaDPz0Q7DBlp1LGvq22iwe63wa2d0LwtA/exec"
+              target="_blank" rel="noopener noreferrer" class="btn-portfolio-demo">
+              <span>Buka Demo Langsung</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PRICING PACKAGES (#harga) -->
+  <section class="section-pricing" id="harga">
+    <div class="container">
+      <div class="center-heading-box">
+        <div class="sub-badge">INVESTASI TERBAIK</div>
+        <h2 class="section-headline">Paket Harga Transparan</h2>
+        <p class="section-paragraph">
+          Biaya jasa terjangkau satu kali bayar di awal tanpa biaya sewa bulanan server Google Sheets.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Paket 1: Basic -->
+        <div class="pricing-card">
+          <div>
+            <h3 class="pkg-title">Paket Basic</h3>
+            <p class="pkg-desc">Pilihan hemat dan cepat untuk bisnis yang membutuhkan kartu nama digital resmi.</p>
+            <div class="pkg-price">Rp150rb – 350rb</div>
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>Landing Page 1 Halaman Elegan</span>
+              </li>
+              <li class="pkg-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>100% Responsif di Layar HP</span>
+              </li>
+              <li class="pkg-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>Tombol Chat WhatsApp Langsung</span>
+              </li>
+              <li class="pkg-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>Pengerjaan Cepat 2–3 Hari</span>
+              </li>
+            </ul>
+          </div>
+          <a href="https://wa.me/6285215804913?text=Halo%20BK%20WebStudio%2C%20saya%20tertarik%20untuk%20memesan%20Paket%20Basic.%20Mohon%20informasi%20detail%20dan%20langkah%20selanjutnya."
+            target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-order-pkg" data-pkg="Basic"
+            style="color: var(--text-main); border-color: #cbd5e1; width: 100%;">
+            <span>Pilih Paket Basic</span>
+          </a>
+        </div>
+
+        <!-- Paket 2: Business (Featured) -->
+        <div class="pricing-card featured">
+          <div class="featured-badge">PALING POPULER</div>
+          <div>
+            <h3 class="pkg-title">Paket Business</h3>
+            <p class="pkg-desc">Standar profesional untuk toko online, kuliner, dan jasa lokal berkembang.</p>
+            <div class="pkg-price">Rp350rb – 700rb</div>
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>Hingga 5 Halaman / Katalog Produk</span>
+              </li>
+              <li class="pkg-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>Desain Futuristik & Animasi Halus</span>
+              </li>
+              <li class="pkg-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>Formulir Terhubung Google Sheets</span>
+              </li>
+              <li class="pkg-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>Fitur Checkout WhatsApp Otomatis</span>
+              </li>
+              <li class="pkg-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>Garansi Revisi Desain 2 Kali</span>
+              </li>
+            </ul>
+          </div>
+          <a href="https://wa.me/6285215804913?text=Halo%20BK%20WebStudio%2C%20saya%20tertarik%20untuk%20memesan%20Paket%20Business.%20Mohon%20informasi%20detail%20dan%20langkah%20selanjutnya."
+            target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-order-pkg" data-pkg="Business"
+            style="width: 100%;">
+            <span>Pilih Paket Business</span>
+          </a>
+        </div>
+
+        <!-- Paket 3: WebApp UMKM -->
+        <div class="pricing-card">
+          <div>
+            <h3 class="pkg-title">WebApp UMKM</h3>
+            <p class="pkg-desc">Aplikasi web kustom untuk inventori, kasir, atau operasional internal bisnis.</p>
+            <div class="pkg-price">Rp700rb – 1,5 Juta</div>
+            <ul class="pkg-features-list">
+              <li class="pkg-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>Sistem WebApp & Dashboard Admin</span>
+              </li>
+              <li class="pkg-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>Database Google Sheets Tanpa Sewa</span>
+              </li>
+              <li class="pkg-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>Pencatatan Stok, Transaksi & Laporan</span>
+              </li>
+              <li class="pkg-feature-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>Ekspor Data ke File Excel / Spreadsheet</span>
+              </li>
+            </ul>
+          </div>
+          <a href="https://wa.me/6285215804913?text=Halo%20BK%20WebStudio%2C%20saya%20tertarik%20untuk%20memesan%20WebApp%20UMKM.%20Mohon%20informasi%20detail%20dan%20langkah%20selanjutnya."
+            target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-order-pkg" data-pkg="WebApp UMKM"
+            style="color: var(--text-main); border-color: #cbd5e1; width: 100%;">
+            <span>Pilih Paket WebApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FAQ ACCORDION (#faq) -->
+  <section class="section-faq" id="faq">
+    <div class="container">
+      <div class="center-heading-box">
+        <div class="sub-badge">TANYA JAWAB</div>
+        <h2 class="section-headline">Pertanyaan Umum (FAQ)</h2>
+        <p class="section-paragraph">Jawaban cepat atas pertanyaan seputar jasa pembuatan website di BK WebStudio.</p>
+      </div>
+
+      <div class="faq-wrapper">
+        <div class="faq-card active">
+          <div class="faq-question">
+            <span>Apakah ada biaya bulanan untuk server dan database?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+          <div class="faq-answer" style="max-height: 200px;">
+            Tidak ada biaya bulanan tersembunyi! Untuk arsitektur Google Apps Script dan Google Sheets, server dan
+            databasenya 100% gratis dari Google. Anda hanya membayar biaya jasa pembuatan website di awal kepada BK
+            WebStudio.
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-question">
+            <span>Berapa lama proses pembuatan website hingga online?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Rata-rata pengerjaan memakan waktu 2 hingga 5 hari kerja tergantung kelengkapan materi (teks, foto produk,
+            logo) dan paket yang Anda pilih. Kami selalu memberikan update perkembangan secara berkala.
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-question">
+            <span>Apakah website ini bisa dibuka lancar di HP Android?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Sangat lancar! Semua website yang kami bangun menganut filosofi Mobile-First, sehingga tampilannya otomatis
+            menyesuaikan ukuran layar HP, ringan diakses, dan hemat kuota internet.
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-question">
+            <span>Bagaimana cara memesan jasa website ini?</span>
+            <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Anda cukup mengisi formulir konsultasi di bawah atau klik tombol WhatsApp kami. Setelah spesifikasi dan
+            harga disepakati, pengerjaan segera dimulai dengan proses komunikasi yang transparan.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CONSULTATION FORM & CONTACT (#pesan) -->
+  <section class="section-contact" id="pesan">
+    <div class="container">
+      <div class="center-heading-box">
+        <div class="sub-badge">MULAI SEKARANG</div>
+        <h2 class="section-headline">Konsultasi & Pemesanan</h2>
+        <p class="section-paragraph">Ceritakan kebutuhan bisnis Anda. Tim BK WebStudio siap memberikan solusi website
+          terbaik sesuai anggaran Anda.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Info Cards -->
+        <div class="contact-info-card">
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Informasi
+            Kontak Langsung</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">Tim kami siap melayani diskusi
+            kebutuhan digital Anda secara ramah dan profesional.</p>
+
+          <div class="info-list-group">
+            <div class="info-item">
+              <div class="info-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </div>
+              <div>
+                <div class="info-text-label">WhatsApp Konsultasi Cepat</div>
+                <a href="https://wa.me/6285215804913?text=Halo%20BK%20WebStudio%2C%20saya%20ingin%20konsultasi%20mengenai%20pembuatan%20website%20untuk%20bisnis%20saya."
+                  target="_blank" rel="noopener noreferrer" class="info-text-val" id="displayWaNumber">+62
+                  852-1580-4913</a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div>
+                <div class="info-text-label">Email Resmi</div>
+                <a href="mailto:bkwebstudio0@gmail.com" class="info-text-val"
+                  id="displayEmail">bkwebstudio0@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div>
+                <div class="info-text-label">Jam Operasional Layanan</div>
+                <div class="info-text-val">Senin – Sabtu (08.00 – 21.00 WIB)</div>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div>
+                <div class="info-text-label">Jangkauan Layanan</div>
+                <div class="info-text-val">Seluruh Indonesia (Online & Remotely)</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 2rem;">
+            <a href="https://wa.me/6285215804913?text=Halo%20BK%20WebStudio%2C%20saya%20ingin%20konsultasi%20mengenai%20pembuatan%20website%20untuk%20bisnis%20saya."
+              target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" id="btnDirectWa" style="width: 100%;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.13.332.202.043.073.043.419-.101.824z" />
+              </svg>
+              <span>Chat WhatsApp Langsung</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Form Card -->
+        <div class="form-card">
+          <form id="consultationForm">
+            <div class="form-group">
+              <label class="form-label" for="inputNama">Nama Lengkap Anda *</label>
+              <input type="text" id="inputNama" class="form-input" placeholder="Contoh: Budi Santoso" required>
+              <div class="form-error" id="errNama">Nama lengkap wajib diisi minimal 3 karakter.</div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inputWa">Nomor WhatsApp Aktif *</label>
+              <input type="tel" id="inputWa" class="form-input" placeholder="Contoh: 085215804913" required>
+              <div class="form-error" id="errWa">Masukkan nomor WhatsApp valid (minimal 9 digit angka).</div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="selectLayanan">Pilihan Kategori Layanan *</label>
+              <select id="selectLayanan" class="form-select" required>
+                <option value="" disabled selected>Pilih salah satu layanan...</option>
+                <option value="Paket Basic (Landing Page Profil)">Paket Basic (Landing Page Profil)</option>
+                <option value="Paket Business (Toko Online / Katalog)">Paket Business (Toko Online / Katalog)</option>
+                <option value="Paket WebApp UMKM (Sistem Kustom / Kasir)">Paket WebApp UMKM (Sistem Kustom / Kasir)
+                </option>
+                <option value="Konsultasi / Kebutuhan Khusus Lainnya">Konsultasi / Kebutuhan Khusus Lainnya</option>
+              </select>
+              <div class="form-error" id="errLayanan">Silakan pilih kategori layanan yang Anda butuhkan.</div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inputDetail">Detail Kebutuhan atau Gambaran Proyek *</label>
+              <textarea id="inputDetail" class="form-textarea" rows="4"
+                placeholder="Ceritakan jenis bisnis Anda, fitur yang diinginkan, atau referensi website yang Anda sukai..."
+                required></textarea>
+              <div class="form-error" id="errDetail">Detail kebutuhan wajib diisi minimal 10 karakter.</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="btnSubmit"
+              style="width: 100%; padding: 0.85rem; font-size: 1rem;">
+              <span id="btnSubmitText">Kirim Formulir Konsultasi</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FOOTER (DARK OBSIDIAN LUXURY) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#beranda" class="nav-brand" style="margin-bottom: 0.5rem;">
+            <div class="brand-logo-icon">
+              <svg viewBox="0 0 100 100" fill="none">
+                <path d="M66 14H14V86H66V72H28V28H66V14Z" fill="#18191c" />
+                <path
+                  d="M66 14C78 14 88 22 88 34C88 43 82 48 75 50C82 52 88 57 88 66C88 78 78 86 66 86V72H66V57H48V65H38V35H48V43H66V28H66V14Z"
+                  fill="#00a2e8" />
+              </svg>
+            </div>
+            <span class="brand-title">BK Web<span>Studio</span></span>
+          </a>
+          <p class="footer-brand-desc">
+            Mitra transformasi digital UMKM dan bisnis modern di Indonesia. Desain website profesional berkelas
+            internasional dengan arsitektur Google Sheets yang efisien.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Navigasi Cepat</h4>
+          <ul class="footer-links-list">
+            <li><a href="#beranda" class="footer-link-item">Beranda</a></li>
+            <li><a href="#layanan" class="footer-link-item">Layanan Desain</a></li>
+            <li><a href="#portofolio" class="footer-link-item">Portofolio Karya</a></li>
+            <li><a href="#harga" class="footer-link-item">Paket Harga</a></li>
+            <li><a href="#faq" class="footer-link-item">Tanya Jawab (FAQ)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Portofolio Live</h4>
+          <ul class="footer-links-list">
+            <li><a
+                href="https://script.google.com/macros/s/AKfycbzRAP0J5tOWvcMUd5gRPYiBRy18KN1OID5SH3sULMsvFO93UhING0vP1szKZIZDzI_DKw/exec"
+                target="_blank" rel="noopener noreferrer" class="footer-link-item">Angkringan Lege</a></li>
+            <li><a
+                href="https://script.google.com/macros/s/AKfycbxRk3NY8-G0HBaaB05YYa9c19ECLHaPE03mJuq0UthDFjLZL2RjGEg1fh5C0Hw1Jjw3/exec"
+                target="_blank" rel="noopener noreferrer" class="footer-link-item">Angkringan Bss Spesial</a></li>
+            <li><a
+                href="https://script.google.com/macros/s/AKfycbxDS0tVqp5QRzMKrcSfl4bn5YiuNYuBMi2GNwaDPz0Q7DBlp1LGvq22iwe63wa2d0LwtA/exec"
+                target="_blank" rel="noopener noreferrer" class="footer-link-item">WebApp Kasir & Inventory</a></li>
+            <li><a href="#pesan" class="footer-link-item">Ajukan Proyek Baru</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Hubungi Kami</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://wa.me/6285215804913" target="_blank" rel="noopener noreferrer" class="footer-link-item"
+                id="footerWaNumber">WhatsApp: +62 852-1580-4913</a></li>
+            <li><a href="mailto:bkwebstudio0@gmail.com" class="footer-link-item" id="footerEmail">Email:
+                bkwebstudio0@gmail.com</a></li>
+            <li><span class="footer-link-item">Jam: 08.00 – 21.00 WIB</span></li>
+            <li><span class="footer-link-item">Indonesia (Online Service)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 BK WebStudio. All Rights Reserved.</div>
+        <div>Creative Solutions For Smart Businesses.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 10. FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/6285215804913?text=Halo%20BK%20WebStudio%2C%20saya%20ingin%20konsultasi%20mengenai%20pembuatan%20website%20untuk%20bisnis%20saya."
+    target="_blank" rel="noopener noreferrer" class="floating-wa-btn" id="floatingWaBtn"
+    aria-label="Chat WhatsApp BK WebStudio">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.13.332.202.043.073.043.419-.101.824z" />
+    </svg>
+    <span>Tanya Kami di WA</span>
+  </a>
+
+  <!-- 11. MODAL DIALOG POP-UP SUKSES -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-box">
+      <div class="modal-icon-ring">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+      </div>
+      <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Formulir
+        Terkirim!</h3>
+      <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;"
+        id="modalSuccessDesc">
+        Terima kasih! Permintaan konsultasi Anda telah berhasil disimpan ke database BK WebStudio.
+      </p>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" id="btnModalWaConfirm"
+          style="width: 100%;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.13.332.202.043.073.043.419-.101.824z" />
+          </svg>
+          <span>Konfirmasi via WhatsApp Sekarang</span>
+        </a>
+        <button class="btn btn-outline-dark" id="btnModalClose"
+          style="color: var(--text-main); border-color: #cbd5e1; width: 100%;">Tutup Jendela</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12. JAVASCRIPT LOGIC & INTEGRASI -->
+  <script>
+    const CONFIG = {
+      // Kontak Resmi BK WebStudio
+      whatsappNumber: '6285215804913',
+      whatsappDisplay: '+62 852-1580-4913',
+      officialEmail: 'bkwebstudio0@gmail.com',
+      webAppUrl: '',
+
+      templates: {
+        generalConsultation: 'Halo BK WebStudio, saya ingin konsultasi mengenai pembuatan website untuk bisnis saya.',
+        packageOrder: function (pkgName) {
+          return 'Halo BK WebStudio, saya tertarik untuk memesan ' + pkgName + '. Mohon informasi detail dan langkah selanjutnya.';
+        },
+        leadConfirmation: function (nama, layanan, detail) {
+          return 'Halo BK WebStudio, saya baru saja mengirim formulir konsultasi di website:\n' +
+            '• Nama: ' + nama + '\n' +
+            '• Layanan: ' + layanan + '\n' +
+            '• Kebutuhan: ' + detail + '\n\n' +
+            'Mohon informasi estimasi biaya dan waktu pengerjaannya. Terima kasih!';
+        }
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const displayElem = document.getElementById('displayWaNumber');
+      const footerWaElem = document.getElementById('footerWaNumber');
+      const footerEmailElem = document.getElementById('footerEmail');
+      const displayEmailElem = document.getElementById('displayEmail');
+      const directWaBtn = document.getElementById('btnDirectWa');
+      const floatingWaBtn = document.getElementById('floatingWaBtn');
+
+      const plainWaUrl = 'https://wa.me/' + CONFIG.whatsappNumber;
+      const directWaUrl = 'https://wa.me/' + CONFIG.whatsappNumber + '?text=' + encodeURIComponent(CONFIG.templates.generalConsultation);
+
+      if (displayElem) {
+        displayElem.textContent = CONFIG.whatsappDisplay;
+        displayElem.href = plainWaUrl;
+        displayElem.target = '_blank';
+        displayElem.rel = 'noopener noreferrer';
+      }
+      if (footerWaElem) {
+        footerWaElem.textContent = 'WhatsApp: ' + CONFIG.whatsappDisplay;
+        footerWaElem.href = plainWaUrl;
+        footerWaElem.target = '_blank';
+        footerWaElem.rel = 'noopener noreferrer';
+      }
+      if (displayEmailElem) {
+        displayEmailElem.textContent = CONFIG.officialEmail;
+        displayEmailElem.href = 'mailto:' + CONFIG.officialEmail;
+      }
+      if (footerEmailElem) {
+        footerEmailElem.textContent = 'Email: ' + CONFIG.officialEmail;
+        footerEmailElem.href = 'mailto:' + CONFIG.officialEmail;
+      }
+
+      if (directWaBtn) {
+        directWaBtn.href = directWaUrl;
+        directWaBtn.target = '_blank';
+        directWaBtn.rel = 'noopener noreferrer';
+        directWaBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.open(directWaUrl, '_blank', 'noopener,noreferrer');
+        });
+      }
+
+      if (floatingWaBtn) {
+        floatingWaBtn.href = directWaUrl;
+        floatingWaBtn.target = '_blank';
+        floatingWaBtn.rel = 'noopener noreferrer';
+        floatingWaBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.open(directWaUrl, '_blank', 'noopener,noreferrer');
+        });
+      }
+
+      const pkgButtons = document.querySelectorAll('.btn-order-pkg');
+      pkgButtons.forEach(function (btn) {
+        const pkgName = btn.getAttribute('data-pkg');
+        const pkgUrl = 'https://wa.me/' + CONFIG.whatsappNumber + '?text=' + encodeURIComponent(CONFIG.templates.packageOrder(pkgName));
+        btn.href = pkgUrl;
+        btn.target = '_blank';
+        btn.rel = 'noopener noreferrer';
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.open(pkgUrl, '_blank', 'noopener,noreferrer');
+        });
+      });
+    });
+
+    // Mobile Drawer Toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (hamburgerBtn && mobileDrawer) {
+      hamburgerBtn.addEventListener('click', function () {
+        mobileDrawer.classList.toggle('open');
+      });
+
+      mobileLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          mobileDrawer.classList.remove('open');
+        });
+      });
+    }
+
+    // FAQ Accordion
+    const faqCards = document.querySelectorAll('.faq-card');
+    faqCards.forEach(function (card) {
+      const q = card.querySelector('.faq-question');
+      const a = card.querySelector('.faq-answer');
+
+      q.addEventListener('click', function () {
+        const isActive = card.classList.contains('active');
+
+        faqCards.forEach(function (c) {
+          c.classList.remove('active');
+          const ans = c.querySelector('.faq-answer');
+          if (ans) ans.style.maxHeight = null;
+        });
+
+        if (!isActive) {
+          card.classList.add('active');
+          a.style.maxHeight = a.scrollHeight + 30 + 'px';
+        }
+      });
+    });
+
+    // Form Submission & Validation
+    const form = document.getElementById('consultationForm');
+    const btnSubmit = document.getElementById('btnSubmit');
+    const btnSubmitText = document.getElementById('btnSubmitText');
+    const successModal = document.getElementById('successModal');
+    const btnModalClose = document.getElementById('btnModalClose');
+    const btnModalWaConfirm = document.getElementById('btnModalWaConfirm');
+
+    const errNama = document.getElementById('errNama');
+    const errWa = document.getElementById('errWa');
+    const errLayanan = document.getElementById('errLayanan');
+    const errDetail = document.getElementById('errDetail');
+
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        errNama.style.display = 'none';
+        errWa.style.display = 'none';
+        errLayanan.style.display = 'none';
+        errDetail.style.display = 'none';
+
+        const nama = document.getElementById('inputNama').value.trim();
+        const whatsapp = document.getElementById('inputWa').value.trim();
+        const layanan = document.getElementById('selectLayanan').value;
+        const detail = document.getElementById('inputDetail').value.trim();
+
+        let isValid = true;
+
+        if (nama.length < 3) {
+          errNama.style.display = 'block';
+          isValid = false;
+        }
+
+        const waClean = whatsapp.replace(/[^0-9+]/g, '');
+        if (waClean.length < 9) {
+          errWa.style.display = 'block';
+          isValid = false;
+        }
+
+        if (!layanan) {
+          errLayanan.style.display = 'block';
+          isValid = false;
+        }
+
+        if (detail.length < 10) {
+          errDetail.style.display = 'block';
+          isValid = false;
+        }
+
+        if (!isValid) return;
+
+        setLoadingState(true);
+
+        const payload = {
+          nama: nama,
+          whatsapp: whatsapp,
+          layanan: layanan,
+          detail: detail
+        };
+
+        if (typeof google !== 'undefined' && google.script && google.script.run) {
+          google.script.run
+            .withSuccessHandler(function (response) {
+              setLoadingState(false);
+              if (response && response.success) {
+                handleFormSuccess(payload);
+              } else {
+                alert('Gagal: ' + (response.message || 'Terjadi kendala pada server Google.'));
+              }
+            })
+            .withFailureHandler(function (error) {
+              setLoadingState(false);
+              alert('Kesalahan Server: ' + (error.message || error));
+            })
+            .simpanFormulir(payload);
+
+        } else {
+          if (!CONFIG.webAppUrl) {
+            setTimeout(function () {
+              setLoadingState(false);
+              handleFormSuccess(payload);
+            }, 800);
+            return;
+          }
+
+          fetch(CONFIG.webAppUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          })
+            .then(function () {
+              setLoadingState(false);
+              handleFormSuccess(payload);
+            })
+            .catch(function (err) {
+              setLoadingState(false);
+              alert('Terjadi kendala saat mengirim data: ' + err.message);
+            });
+        }
+      });
+    }
+
+    function setLoadingState(isLoading) {
+      if (isLoading) {
+        btnSubmit.disabled = true;
+        btnSubmit.style.opacity = '0.75';
+        btnSubmitText.textContent = 'Menyimpan ke Database...';
+      } else {
+        btnSubmit.disabled = false;
+        btnSubmit.style.opacity = '1';
+        btnSubmitText.textContent = 'Kirim Formulir Konsultasi';
+      }
+    }
+
+    function handleFormSuccess(data) {
+      form.reset();
+      const waText = CONFIG.templates.leadConfirmation(data.nama, data.layanan, data.detail);
+      const waUrl = 'https://wa.me/' + CONFIG.whatsappNumber + '?text=' + encodeURIComponent(waText);
+      btnModalWaConfirm.href = waUrl;
+      btnModalWaConfirm.target = '_blank';
+      btnModalWaConfirm.rel = 'noopener noreferrer';
+      btnModalWaConfirm.onclick = function (e) {
+        e.preventDefault();
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+      };
+      successModal.classList.add('show');
+    }
+
+    if (btnModalClose) {
+      btnModalClose.addEventListener('click', function () {
+        successModal.classList.remove('show');
+      });
+    }
+
+    if (successModal) {
+      successModal.addEventListener('click', function (e) {
+        if (e.target === successModal) {
+          successModal.classList.remove('show');
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
